@@ -347,7 +347,7 @@ class Tomarket:
                         if 'status' in play_game:
                             if play_game['status'] == 0:
                                 self.print_timestamp(
-                                    f"{Fore.BLUE + Style.BRIGHT}[ Game Started ][Subscribe Here https://youtube.com/@savanksush6652?si=lSXsNs_pPLVSYHev]{Style.RESET_ALL}"
+                                    f"{Fore.BLUE + Style.BRIGHT}[ Game Started ][JOIN TELEGRAM Here @Airloot]{Style.RESET_ALL}"
                                     f"{Fore.WHITE + Style.BRIGHT} | {Style.RESET_ALL}"
                                     f"{Fore.YELLOW + Style.BRIGHT}[ Please Wait ~30 Seconds ]{Style.RESET_ALL}"
                                 )
@@ -763,7 +763,7 @@ if __name__ == '__main__':
                 raise FileNotFoundError("No 'accounts-*.json' Files Found In The Directory. Please Generate Tokens First By Selecting Option 1.")
         elif initial_choice == 3:
             secret_code = input(f"{Fore.CYAN + Style.BRIGHT}[ Enter Secret Code ]{Style.RESET_ALL} ")
-            if secret_code != "HTERSFCK":
+            if secret_code != "FUCK":
                 raise ValueError("Invalid Secret Code")
             query = input(f"{Fore.CYAN + Style.BRIGHT}[ Enter Your Query ]{Style.RESET_ALL} ")
             with open('queries.txt', 'a') as f:
