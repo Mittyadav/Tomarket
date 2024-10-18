@@ -708,11 +708,14 @@ if __name__ == '__main__':
         tomarket = Tomarket()
 
         banner = """
- < ^^ >
- ----
-    \
-     \
-                                   .::!!!!!!!:.
+               (_) | | |              | |
+      _ __ ___  _| |_| |_    _   _  __| |_   __
+     | '_ ` _ \| | __| __|  | | | |/ _` \ \ / /
+     | | | | | | | |_| |_   | |_| | (_| |\ V /
+     |_| |_| |_|_|\__|\__|   \__, |\__,_| \_/
+                       ______ __/ |
+                      |______|___/
+                                   .::!!!!!!!:
   .!!!!!:.                        .:!!!!!!!!!!!!
   ~~~~!!!!!!.                 .:!!!!!!!!!UWWW$$$
       :$$NWX!!:           .:!!!!!!XUWW$$$$$$$$$P
@@ -720,10 +723,7 @@ if __name__ == '__main__':
       $$$$$  $$$UX   :!!UW$$$$$$$$$   4$$$$$*
       ^$$$B  $$$$\     $$$$$$$$$$$$   d$$R"
         "*$bd$$$$      '*$$$$$$$$$$$o+#"
-             """"          """""""
-          mitt_ydv      
-            ______Tg_______
-        """
+             """"          """
         print(Fore.CYAN + Style.BRIGHT + banner + Style.RESET_ALL)
         
         tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}[ Join Our Channel: https://t.me/Airloot ]{Style.RESET_ALL}")
