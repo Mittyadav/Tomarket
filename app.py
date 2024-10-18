@@ -708,21 +708,38 @@ if __name__ == '__main__':
         tomarket = Tomarket()
 
         banner = """
-███████  █████  ██    ██  █████  ███    ██ 
-██      ██   ██ ██    ██ ██   ██ ████   ██ 
-███████ ███████ ██    ██ ███████ ██ ██  ██ 
-     ██ ██   ██  ██  ██  ██   ██ ██  ██ ██ 
-███████ ██   ██   ████   ██   ██ ██   ████ 
+ ____
+< ^^ >
+ ----
+    \
+     \
+                                   .::!!!!!!!:.
+  .!!!!!:.                        .:!!!!!!!!!!!!
+  ~~~~!!!!!!.                 .:!!!!!!!!!UWWW$$$
+      :$$NWX!!:           .:!!!!!!XUWW$$$$$$$$$P
+      $$$$$##WX!:      .<!!!!UW$$$$"  $$$$$$$$#
+      $$$$$  $$$UX   :!!UW$$$$$$$$$   4$$$$$*
+      ^$$$B  $$$$\     $$$$$$$$$$$$   d$$R"
+        "*$bd$$$$      '*$$$$$$$$$$$o+#"
+             """"          """""""
+                _ _   _                _
+               (_) | | |              | |
+      _ __ ___  _| |_| |_    _   _  __| |_   __
+     | '_ ` _ \| | __| __|  | | | |/ _` \ \ / /
+     | | | | | | | |_| |_   | |_| | (_| |\ V /
+     |_| |_| |_|_|\__|\__|   \__, |\__,_| \_/
+                       ______ __/ |
+                      |______|___/
         """
         print(Fore.CYAN + Style.BRIGHT + banner + Style.RESET_ALL)
         
-        tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}[ Join Our Channel: https://t.me/savanop121 ]{Style.RESET_ALL}")
+        tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}[ Join Our Channel: https://t.me/Airloot ]{Style.RESET_ALL}")
 
         account_files = [f for f in os.listdir() if f.startswith('accounts-') and f.endswith('.json')]
         account_files.sort(key=lambda x: int(re.findall(r'\d+', x)[0]))
         
         tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}╔═══════════════════════════════════════════╗{Style.RESET_ALL}")
-        tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}║       Select an option [MADE BY SAVANOP]       ║{Style.RESET_ALL}")
+        tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}║       Select an option [MADE BY MITT_YDV]       ║{Style.RESET_ALL}")
         tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}╠═══════════════════════════════════════════╣{Style.RESET_ALL}")
         tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}║ {Fore.CYAN}[ 1 ] | Generate Tokens                    {Fore.MAGENTA}║{Style.RESET_ALL}")
         tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}║ {Fore.CYAN}[ 2 ] | Use Existing accounts-*.json       {Fore.MAGENTA}║{Style.RESET_ALL}")
