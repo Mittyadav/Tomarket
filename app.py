@@ -754,7 +754,7 @@ if __name__ == '__main__':
         ))
         if initial_choice == 1:
             secret_code = input(f"{Fore.CYAN + Style.BRIGHT}[ Enter Secret Code ]{Style.RESET_ALL} ")
-            if secret_code != "LOVEMYEX":
+            if secret_code != "MITT":
                 raise ValueError("Invalid Secret Code")
             tomarket.print_timestamp(f"{Fore.CYAN + Style.BRIGHT}[ Processing Queries to Generate Tokens ]{Style.RESET_ALL}")
             asyncio.run(tomarket.process_queries())
