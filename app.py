@@ -734,17 +734,21 @@ if __name__ == '__main__':
         tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}╔═══════════════════════════════════════════╗{Style.RESET_ALL}")
         tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}║       Select an option [MADE BY MITT_YDV]       ║{Style.RESET_ALL}")
         tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}╠═══════════════════════════════════════════╣{Style.RESET_ALL}")
-        tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}║ {Fore.CYAN}[ 1 ] | Generate Tokens  (run bot)         {Fore.MAGENTA}║{Style.RESET_ALL}")
+        tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}║ {Fore.CYAN}[ 1 ] | Generate Tokens                    {Fore.MAGENTA}║{Style.RESET_ALL}")
         tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}║ {Fore.CYAN}[ 2 ] | Use Existing accounts-*.json       {Fore.MAGENTA}║{Style.RESET_ALL}")
-        tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}║ {Fore.CYAN}[ 3 ] | Add Query       (1st choose this)                 {Fore.MAGENTA}║{Style.RESET_ALL}")
+        tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}║ {Fore.CYAN}[ 3 ] | Add Query                          {Fore.MAGENTA}║{Style.RESET_ALL}")
         tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}║ {Fore.CYAN}[ 4 ] | Reset Queries                      {Fore.MAGENTA}║{Style.RESET_ALL}")
         tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}║ {Fore.CYAN}[ 5 ] | Reset Account JSON                 {Fore.MAGENTA}║{Style.RESET_ALL}")
         tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}╚═══════════════════════════════════════════╝{Style.RESET_ALL}")
 
-       elif initial_choice = int(input(
+        initial_choice = int(input(
             f"{Fore.CYAN + Style.BRIGHT}[ Enter The Number Corresponding To Your Choice ]{Style.RESET_ALL}"
             f"{Fore.WHITE + Style.BRIGHT} | {Style.RESET_ALL}"
-          
+        ))
+        if initial_choice == 1:
+            secret_code = input(f"{Fore.CYAN + Style.BRIGHT}[ Enter Secret Code ]{Style.RESET_ALL} ")
+            if secret_code != "MITT":
+                raise ValueError("Invalid Secret Code")
             tomarket.print_timestamp(f"{Fore.CYAN + Style.BRIGHT}[ Processing Queries to Generate Tokens ]{Style.RESET_ALL}")
             asyncio.run(tomarket.process_queries())
             tomarket.print_timestamp(f"{Fore.CYAN + Style.BRIGHT}[ Token Generation Completed ]{Style.RESET_ALL}")
@@ -757,7 +761,10 @@ if __name__ == '__main__':
         elif initial_choice == 2:
             if not account_files:
                 raise FileNotFoundError("No 'accounts-*.json' Files Found In The Directory. Please Generate Tokens First By Selecting Option 1.")
-        
+        elif initial_choice == 3:
+            secret_code = input(f"{Fore.CYAN + Style.BRIGHT}[ Enter Secret Code ]{Style.RESET_ALL} ")
+            if secret_code != "FUCK":
+                raise ValueError("Invalid Secret Code")
             query = input(f"{Fore.CYAN + Style.BRIGHT}[ Enter Your Query ]{Style.RESET_ALL} ")
             with open('queries.txt', 'a') as f:
                 f.write(query + '\n')
