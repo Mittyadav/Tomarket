@@ -741,11 +741,10 @@ if __name__ == '__main__':
         tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}║ {Fore.CYAN}[ 5 ] | Reset Account JSON                 {Fore.MAGENTA}║{Style.RESET_ALL}")
         tomarket.print_timestamp(f"{Fore.MAGENTA + Style.BRIGHT}╚═══════════════════════════════════════════╝{Style.RESET_ALL}")
 
-        initial_choice = int(input(
+       elif initial_choice = int(input(
             f"{Fore.CYAN + Style.BRIGHT}[ Enter The Number Corresponding To Your Choice ]{Style.RESET_ALL}"
             f"{Fore.WHITE + Style.BRIGHT} | {Style.RESET_ALL}"
-        ))
-        
+          
             tomarket.print_timestamp(f"{Fore.CYAN + Style.BRIGHT}[ Processing Queries to Generate Tokens ]{Style.RESET_ALL}")
             asyncio.run(tomarket.process_queries())
             tomarket.print_timestamp(f"{Fore.CYAN + Style.BRIGHT}[ Token Generation Completed ]{Style.RESET_ALL}")
