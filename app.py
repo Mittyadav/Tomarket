@@ -654,85 +654,50 @@ class Tomarket:
                     )
                     await self.play_game(token=account['token'])
                     sleep(random.randint(3, 5))
-                    
-    async def main():
-             init(autoreset=True)
-                 tom = Tomarket()
-                 auto_task = input("auto clear task y/n  : ").strip().lower()
-                 auto_game = input("auto play game  y/n  : ").strip().lower()
-                 auto_combo = input("auto claim combo puzzle y/n : ").strip().lower()
-                 random_number = input("set random score in game 300-500  y/n  : ").strip().lower()
-                 free_raffle = input("enable free raffle  y/n  : ").strip().lower()
-                 # selector_game = input("playing random score game (400-600) y/n ? ").strip().lower()
-                 used_stars = input("use star for : 1. upgrade rank | 2.auto spin | n.(skip all) (1/2/n): ").strip().lower()
-    while True:
-        queries = load_credentials()
-        sum = len(queries)
-        delay = int(3 * random.randint(3700, 3750))
-        # generate_token()
-        start_time = time.time()
-                
-        for index, query in enumerate(queries):
-            mid_time = time.time()
-            total = delay - (mid_time-start_time)
-            parse = parse_query(query)
-            user = parse.get('user')
-            token = get(user['id'])
-            if token == None:
-                token = tom.user_login(query)
-                save(user.get('id'), token)
-                time.sleep(2)
-            print_timestamp(f"{Fore.CYAN + Style.BRIGHT}[ Account {index+1}/{sum} {user.get('username','')} ]{Style.RESET_ALL}")
-            tom.rank_data(token=token, selector=used_stars)
-            time.sleep(2)
-            tom.claim_daily(token=token)
-            time.sleep(2)
-            tom.start_farm(token=token)
-            time.sleep(2)
-            if free_raffle == "y":
-                tom.free_spin(token=token, query=query)
-            time.sleep(2)
-        
-        if auto_task == 'y':
-            for index, query in enumerate(queries):
-                mid_time = time.time()
-                total = delay - (mid_time-start_time)
-                if total <= 0:
-                    break
-                parse = parse_query(query)
-                user = parse.get('user')
-                token = get(user['id'])
-                if token == None:
-                    token = tom.user_login(query)
-                print_timestamp(f"{Fore.CYAN + Style.BRIGHT}[ Account {index+1}/{sum} {user.get('username','')} ]{Style.RESET_ALL}")
-                tom.list_tasks(token=token,query=query)
-                if auto_combo == 'y':
-                    tom.puzzle_task(token, query)
-                # tom.rank_data(token=token)
-                time.sleep(2)   
-                
-        if auto_game == 'y':
-            for index, query in enumerate(queries):
-                mid_time = time.time()
-                total = delay - (mid_time-start_time)
-                if total <= 0:
-                    break
-                parse = parse_query(query)
-                user = parse.get('user')
-                token = get(user['id'])
-                if token == None:
-                    token = tom.user_login(query)
-                print_timestamp(f"{Fore.CYAN + Style.BRIGHT}[ Account {index+1}/{sum} {user.get('username','')} ]{Style.RESET_ALL}")
-                tom.user_balance(token=token, random_number=random_number)
-                time.sleep(2)
 
-        end_time = time.time()
-        total = delay - (end_time-start_time)
-        hours, remainder = divmod(total, 3600)
-        minutes, seconds = divmod(remainder, 60)
-        print(f"{Fore.YELLOW + Style.BRIGHT}[ Restarting In {int(hours)} Hours {int(minutes)} Minutes {int(seconds)} Seconds ]{Style.RESET_ALL}")
-        if total > 0:
-            time.sleep(total)
+                sleep(random.randint(5, 7))
+                for account in accounts:
+                    self.print_timestamp(
+                        f"{Fore.WHITE + Style.BRIGHT}[ Tasks ]{Style.RESET_ALL}"
+                        f"{Fore.WHITE + Style.BRIGHT} | {Style.RESET_ALL}"
+                        f"{Fore.CYAN + Style.BRIGHT}[ {account['first_name']} ]{Style.RESET_ALL}"
+                    )
+                    await self.list_tasks(token=account['token'])
+                    sleep(random.randint(3, 5))
+
+                sleep(random.randint(5, 7))
+                for account in accounts:
+                    self.print_timestamp(
+                        f"{Fore.WHITE + Style.BRIGHT}[ Spin ]{Style.RESET_ALL}"
+                        f"{Fore.WHITE + Style.BRIGHT} | {Style.RESET_ALL}"
+                        f"{Fore.CYAN + Style.BRIGHT}[ {account['first_name']} ]{Style.RESET_ALL}"
+                    )
+                    await self.assets_spin(token=account['token'])
+                    sleep(random.randint(3, 5))
+                    await self.tickets_user(token=account['token'])
+                    sleep(random.randint(3, 5))
+
+                if farming_times:
+                    wait_times = [farm_end_time - datetime.now().astimezone().timestamp() for farm_end_time in farming_times if farm_end_time > datetime.now().astimezone().timestamp()]
+                    if wait_times:
+                        sleep_time = min(wait_times) + 30
+                    else:
+                        sleep_time = 15 * 60
+                else:
+                    sleep_time = 15 * 60
+
+                self.print_timestamp(
+                    f"{Fore.CYAN + Style.BRIGHT}[ Total Account {len(accounts)} ]{Style.RESET_ALL}"
+                    f"{Fore.WHITE + Style.BRIGHT} | {Style.RESET_ALL}"
+                    f"{Fore.GREEN + Style.BRIGHT}[ Total Balance {total_balance} ]{Style.RESET_ALL}"
+                )
+                self.print_timestamp(f"{Fore.CYAN + Style.BRIGHT}[ Restarting At {(datetime.now().astimezone() + timedelta(seconds=sleep_time)).strftime('%X %Z')} ]{Style.RESET_ALL}")
+
+                sleep(sleep_time)
+                self.clear_terminal()
+            except Exception as e:
+                self.print_timestamp(f"{Fore.RED + Style.BRIGHT}[ {str(e)} ]{Style.RESET_ALL}")
+                continue
 
 if __name__ == '__main__':
     try:
