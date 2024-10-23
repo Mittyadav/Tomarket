@@ -655,16 +655,16 @@ class Tomarket:
                     await self.play_game(token=account['token'])
                     sleep(random.randint(3, 5))
                     
-async def main():
-    init(autoreset=True)
-    tom = Tomarket()
-    auto_task = input("auto clear task y/n  : ").strip().lower()
-    auto_game = input("auto play game  y/n  : ").strip().lower()
-    auto_combo = input("auto claim combo puzzle y/n : ").strip().lower()
-    random_number = input("set random score in game 300-500  y/n  : ").strip().lower()
-    free_raffle = input("enable free raffle  y/n  : ").strip().lower()
-    # selector_game = input("playing random score game (400-600) y/n ? ").strip().lower()
-    used_stars = input("use star for : 1. upgrade rank | 2.auto spin | n.(skip all) (1/2/n): ").strip().lower()
+    async def main():
+             init(autoreset=True)
+                 tom = Tomarket()
+                 auto_task = input("auto clear task y/n  : ").strip().lower()
+                 auto_game = input("auto play game  y/n  : ").strip().lower()
+                 auto_combo = input("auto claim combo puzzle y/n : ").strip().lower()
+                 random_number = input("set random score in game 300-500  y/n  : ").strip().lower()
+                 free_raffle = input("enable free raffle  y/n  : ").strip().lower()
+                 # selector_game = input("playing random score game (400-600) y/n ? ").strip().lower()
+                 used_stars = input("use star for : 1. upgrade rank | 2.auto spin | n.(skip all) (1/2/n): ").strip().lower()
     while True:
         queries = load_credentials()
         sum = len(queries)
