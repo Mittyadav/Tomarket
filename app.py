@@ -654,8 +654,7 @@ class Tomarket:
                     )
                     await self.play_game(token=account['token'])
                     sleep(random.randint(3, 5))
-
-def main():
+async def main():
     init(autoreset=True)
     tom = Tomarket()
     auto_task = input("auto clear task y/n  : ").strip().lower()
