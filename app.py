@@ -329,7 +329,7 @@ class Tomarket:
         except Exception as e:
             return self.print_timestamp(f"{Fore.RED + Style.BRIGHT}[ An Unexpected Error Occurred While Claim Farm: {str(e)} ]{Style.RESET_ALL}")
 
-    #async def play_game(self, token: str):
+    async def play_game(self, token: str):
         url = 'https://api-web.tomarket.ai/tomarket-game/v1/game/play'
         data = json.dumps({'game_id':'59bcd12e-04e2-404c-a172-311a0084587d'})
         headers = {
