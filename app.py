@@ -338,7 +338,7 @@ class Tomarket:
             'Content-Length': str(len(data)),
             'Content-Type': 'application/json'
         }
- #      while True:
+        while True:
             try:
                 async with ClientSession(timeout=ClientTimeout(total=20)) as session:
                     async with session.post(url=url, headers=headers, data=data, ssl=False) as response:
