@@ -349,10 +349,10 @@ class Tomarket:
                                 self.print_timestamp(
                                     f"{Fore.BLUE + Style.BRIGHT}[ Game Started ][JOIN TELEGRAM Here @Airloot]{Style.RESET_ALL}"
                                     f"{Fore.WHITE + Style.BRIGHT} | {Style.RESET_ALL}"
-                                    f"{Fore.YELLOW + Style.BRIGHT}[ Please Wait ~05 Seconds ]{Style.RESET_ALL}"
+                                    f"{Fore.YELLOW + Style.BRIGHT}[ Please Wait ~30 Seconds ]{Style.RESET_ALL}"
                                 )
                                 sleep(30 + random.randint(3, 5))
-                                await self.claim_game(token=token, points=custom.randint(200,300))
+                                await self.claim_game(token=token, points=random.randint(3000, 4001))
                             elif play_game['status'] == 500 and play_game['message'] == 'no chance':
                                 return self.print_timestamp(f"{Fore.RED + Style.BRIGHT}[ No Chance To Start Game ]{Style.RESET_ALL}")
             except ClientResponseError as e:
@@ -680,7 +680,7 @@ class Tomarket:
                 if farming_times:
                     wait_times = [farm_end_time - datetime.now().astimezone().timestamp() for farm_end_time in farming_times if farm_end_time > datetime.now().astimezone().timestamp()]
                     if wait_times:
-                        sleep_time = min(wait_times) + 15
+                        sleep_time = min(wait_times) + 30
                     else:
                         sleep_time = 15 * 60
                 else:
