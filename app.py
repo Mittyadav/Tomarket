@@ -351,7 +351,7 @@ class Tomarket:
                                     f"{Fore.WHITE + Style.BRIGHT} | {Style.RESET_ALL}"
                                     f"{Fore.YELLOW + Style.BRIGHT}[ Please Wait ~05 Seconds ]{Style.RESET_ALL}"
                                 )
-                                sleep(05 + random.randint(3, 5))
+                                sleep(30 + random.randint(3, 5))
                                 await self.claim_game(token=token, points=custom.randint(200,300))
                             elif play_game['status'] == 500 and play_game['message'] == 'no chance':
                                 return self.print_timestamp(f"{Fore.RED + Style.BRIGHT}[ No Chance To Start Game ]{Style.RESET_ALL}")
