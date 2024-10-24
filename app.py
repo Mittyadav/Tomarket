@@ -329,10 +329,10 @@ class Tomarket:
         except Exception as e:
             return self.print_timestamp(f"{Fore.RED + Style.BRIGHT}[ An Unexpected Error Occurred While Claim Farm: {str(e)} ]{Style.RESET_ALL}")
 
-#    async def play_game(self, token: str):
- #       url = 'https://api-web.tomarket.ai/tomarket-game/v1/game/play'
-     #   data = json.dumps({'game_id':'59bcd12e-04e2-404c-a172-311a0084587d'})
-     #   headers = {
+    async def play_game(self, token: str):
+        url = 'https://api-web.tomarket.ai/tomarket-game/v1/game/play'
+        data = json.dumps({'game_id':'59bcd12e-04e2-404c-a172-311a0084587d'})
+        headers = {
             **self.headers,
             'Authorization': token,
             'Content-Length': str(len(data)),
@@ -343,7 +343,7 @@ class Tomarket:
                 async with ClientSession(timeout=ClientTimeout(total=20)) as session:
                     async with session.post(url=url, headers=headers, data=data, ssl=False) as response:
                         response.raise_for_status()
-     #                   play_game = await response.json()
+                        play_game = await response.json()
                         if 'status' in play_game:
                             if play_game['status'] == 0:
                                 self.print_timestamp(
@@ -352,8 +352,8 @@ class Tomarket:
                                     f"{Fore.YELLOW + Style.BRIGHT}[ Please Wait ~10 Seconds ]{Style.RESET_ALL}"
                                 )
                                 sleep(30 + random.randint(3, 5))
-                                await self.claim_game(token=token, points=random.randint(3000, 4001))
-            #                elif play_game['status'] == 500 and play_game['message'] == 'no chance':
+                                await self.claim_game(token=token, points=random.randint(6000, 6001))
+                            elif play_game['status'] == 500 and play_game['message'] == 'no chance':
                                 return self.print_timestamp(f"{Fore.RED + Style.BRIGHT}[ No Chance To Start Game ]{Style.RESET_ALL}")
             except ClientResponseError as e:
                 return self.print_timestamp(f"{Fore.RED + Style.BRIGHT}[ An HTTP Error Occurred While Play Game: {str(e)} ]{Style.RESET_ALL}")
