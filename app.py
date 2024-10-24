@@ -680,7 +680,7 @@ class Tomarket:
                 if farming_times:
                     wait_times = [farm_end_time - datetime.now().astimezone().timestamp() for farm_end_time in farming_times if farm_end_time > datetime.now().astimezone().timestamp()]
                     if wait_times:
-                        sleep_time = min(wait_times) + 05
+                        sleep_time = min(wait_times) + 15
                     else:
                         sleep_time = 15 * 60
                 else:
